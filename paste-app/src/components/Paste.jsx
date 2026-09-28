@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removefrompaste, updateyourpaste } from '../redux/pasteslice';
+import { useNavigate } from 'react-router-dom';
+
 
 const Paste = () => {
+  const navigate = useNavigate();
   const pastes = useSelector((state) =>
     state.paste.pastes);
   const [searchTerm, setsearchTerm] = useState('');
@@ -15,9 +18,9 @@ const Paste = () => {
   function handledelete(pasteId){
     dispatch(removefrompaste(pasteId));
   }
-  function handleedit(pasteId){
-  dispatch(updateyourpaste(pasteId))
-  }
+  function handleedit(pasteId) {
+  navigate(`/edit/${pasteId}`);
+}
   function handleshare(){
 
   }
