@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.home {
+  margin-top: 30px;
+}
