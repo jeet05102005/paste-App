@@ -4,7 +4,7 @@ import Home from './Home'
 
 const Navbar = () => {
   return (
-    <div className='flex flex-row gap-29'>
+    <div className='flex flex-row  justify-between h-16 bg-slate-100 w-full  items-center p-10'>
       <NavLink to='/'>
       home
       </NavLink >

@@ -50,7 +50,7 @@ const EditPaste = () => {
 
       <button
         onClick={handleUpdate}
-        className="border-2 px-5 py-2"
+        className="border-2 px-5 py-2 cursor-pointer"
       >
         Update Paste
       </button>
