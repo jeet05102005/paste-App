@@ -11,7 +11,7 @@ const router = createBrowserRouter([
    
   path: "/",
   element: (
-    <div>
+    <div className='w-[900px]'>
       <Navbar />
       <Home />
     </div>
@@ -40,10 +40,10 @@ const router = createBrowserRouter([
   {
   path: "/edit/:id",
   element: (
-    <>
+    <div >
       <Navbar /><br></br>
       <EditPaste />
-    </>
+    </div>
   )
 }
 ]);
