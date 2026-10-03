@@ -1,3 +1,4 @@
+
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import EditPaste from "./components/EditPaste";
@@ -8,44 +9,50 @@ import Viewpaste from './components/Viewpaste';
 
 const router = createBrowserRouter([
   {
-   
-  path: "/",
-  element: (
-    <div className='w-[900px]'>
-      <Navbar />
-      <Home />
-    </div>
-  ) 
+    path: "/",
+    element: (
+      <div className="min-h-screen w-full bg-slate-950 text-white">
+        <Navbar />
+        <Home />
+      </div>
+    )
   },
 
   {
     path: "/pastes",
     element: (
-    <div>
-        <Navbar /><br></br>
-        <Paste />
-      </div>
-      )
-  },
-
-  {
-    path: "/Viewpaste/:id",
-    element:( 
-      <div>
-        <Navbar /><br></br>
-        <Viewpaste />
+      <div className="min-h-screen w-full bg-slate-950 text-white">
+        <Navbar />
+        <div className="pt-6">
+          <Paste />
+        </div>
       </div>
     )
   },
+
   {
-  path: "/edit/:id",
+  path: "/Viewpaste/:id",
   element: (
-    <div >
-      <Navbar /><br></br>
-      <EditPaste />
+    <div>
+      <Navbar />
+      <div>
+        <Viewpaste />
+      </div>
     </div>
   )
-}
+},
+
+  {
+    path: "/edit/:id",
+    element: (
+      <div className="min-h-screen w-full bg-slate-950 text-white">
+        <Navbar />
+        <div className="pt-6">
+          <EditPaste />
+        </div>
+      </div>
+    )
+  }
 ]);
 
 function App() {
@@ -57,3 +64,4 @@ function App() {
 }
 
 export default App;
+

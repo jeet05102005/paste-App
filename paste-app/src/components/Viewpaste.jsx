@@ -1,44 +1,90 @@
 import React from 'react'
-import  { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useSearchParams } from 'react-router';
-import { addyourpaste, updateyourpaste } from '../redux/pasteslice';
+import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
 
 const Viewpaste = () => {
-const {id}=useParams();
-const allpastes = useSelector((state)=>state.paste.pastes);
-const paste = allpastes.filter((p)=>p._id===id)[0];
+
+  const { id } = useParams();
+
+  const allpastes = useSelector(
+    (state) => state.paste.pastes
+  );
+
+  const paste = allpastes.filter(
+    (p) => p._id === id
+  )[0];
+
+  if (!paste) {
+    return (
+      <div className="
+        min-h-[calc(100vh-80px)]
+        flex
+        items-center
+        justify-center
+        text-white
+        text-xl
+      ">
+        Paste not found
+      </div>
+    );
+  }
 
   return (
-    <div className='flex flex-col  gap-6 mt-5'>
-      <div className='gap-6 flex flex-row'>
-        <div>
-          <input className='rounded-[2px]  mt-5px h-8 pl-1.5 '
-            type="text"
-            placeholder='enter your title'
-            value={paste.Title}
-            disabled
-            onChange={(e) => setTitle(e.target.value)}
-          /></div>
+    <div className=" min-h-[calc(100vh-80px)] w-full flex justify-center px-4 sm:px-6 lg:px-10 py-8">
 
-        <>
-          {/* <button onClick={createpaste}
-            className="bg-blue-500 text-white rounded cursor-pointer h-8 w-30 text-center"
-          >
-            {pasteId ? "Update Paste" : "Create Paste"}
-          </button>*/}</>
-      </div>
+      <div className="
+        w-full
+        max-w-6xl
+        flex
+        flex-col
+        gap-6
+      ">
 
+        {/* Title */}
+        <input
+          className="
+            w-full
+            h-12
+            px-4
+            rounded-xl
+            bg-slate-900
+            border
+            border-slate-700
+            text-white
+            outline-none
+            cursor-not-allowed
+          "
+          type="text"
+          value={paste.title}
+          disabled
+          readOnly
+        />
 
-
-      <div className='gap-2px'>
-        <textarea className='w-96 h-100 rounded border-[1.3px] pl-1.5'
-          placeholder='enter your content'
+        {/* Content */}
+        <textarea
+          className="
+            w-full
+            min-h-[500px]
+            resize-y
+            rounded-2xl
+            bg-slate-900
+            border
+            border-slate-700
+            p-5
+            text-white
+            outline-none
+            leading-7
+            font-mono
+            shadow-xl
+            cursor-not-allowed
+          "
           value={paste.content}
           disabled
-          onChange={(e) => setvalue(e.target.value)}
-        ></textarea>
+          readOnly
+        />
+
       </div>
+
     </div>
   )
 }
