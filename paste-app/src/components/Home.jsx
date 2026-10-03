@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router";
-import { addyourpaste, updateyourpaste } from "../redux/pasteslice";
+import { addyourpaste, updateyourpaste } from "../redux/pasteSlice";
 import "../App.css";
 
 const Home = () => {
